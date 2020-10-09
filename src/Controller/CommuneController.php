@@ -15,6 +15,8 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use OpenApi\Annotations as OA;
+use Nelmio\ApiDocBundle\Annotation\Model;
 
 class CommuneController extends AbstractController
 {
@@ -32,6 +34,10 @@ class CommuneController extends AbstractController
 
 
     /**
+     * @OA\Response(
+     *     response=200,
+     *     @Model(type=Commune::class)
+     * )
      * @Route("/api/communes", name="communes", methods={"GET"})
      * @param CommuneRepository $communeRepository
      * @param Request $request
@@ -51,6 +57,10 @@ class CommuneController extends AbstractController
     }
 
     /**
+     * @OA\Response(
+     *     response=200,
+     *     @Model(type=Commune::class)
+     * )
      * @Route("/api/commune/create", name="communeCreate", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -83,6 +93,10 @@ class CommuneController extends AbstractController
     }
 
     /**
+     * @OA\Response(
+     *     response=200,
+     *     @Model(type=Commune::class)
+     * )
      * @Route("/api/commune/update", name="communeUpdate", methods={"PUT"})
      * @param Request $request
      * @param CommuneRepository $communeRepository
@@ -115,6 +129,10 @@ class CommuneController extends AbstractController
     }
 
     /**
+     * @OA\Response(
+     *     response=200,
+     *     @Model(type=Commune::class)
+     * )
      * @Route("/api/commune/delete", name="communeDelete", methods={"DELETE"})
      * @param Request $request
      * @param CommuneRepository $communeRepository
