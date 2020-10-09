@@ -15,8 +15,6 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use OpenApi\Annotations as OA;
-use Nelmio\ApiDocBundle\Annotation\Model;
 
 class UserController extends AbstractController
 {
@@ -50,10 +48,6 @@ class UserController extends AbstractController
 
 
     /**
-     * @OA\Response(
-     *     response=200,
-     *     @Model(type=User::class)
-     * )
      * @Route("user/create", name="userCreate", methods={"POST"})
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
@@ -74,11 +68,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @OA\Response(
-     *     response=200,
-     *     @Model(type=User::class)
-     * )
-     * @Route("/api/user/update", name="userUpdate", methods={"PUT"})
+     * @Route("/api/user/update", name="userUpdate", methods={"PATCH"})
      * @param Request $request
      * @param UserRepository $userRepository
      * @param UserPasswordEncoderInterface $passwordEncoder
@@ -100,10 +90,6 @@ class UserController extends AbstractController
     }
 
     /**
-     * @OA\Response(
-     *     response=200,
-     *     @Model(type=User::class)
-     * )
      * @Route("/api/user/delete", name="userDelete", methods={"DELETE"})
      * @param Request $request
      * @param UserRepository $userRepository
