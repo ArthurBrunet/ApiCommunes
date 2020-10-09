@@ -127,6 +127,6 @@ class CommuneController extends AbstractController
         $commune = $communeRepository->find($item['id']);
         $em->remove($commune);
         $em->flush();
-        return new Response(0);
+        return new Response("ok");
     }
 }
